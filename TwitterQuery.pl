@@ -7,10 +7,6 @@ use 5.12.0;
 use strict;
 use Test::More;
 
-our $consumer_key    = "eYbCBGZHFdqFXclSJjcAwRyhT";
-our $consumer_secret = "VdHt0WgUo9aHWZejTcg1qvUeirkFxF4VgzWuMfpVWcQe6JpaBZ";
-our $token       	 = "2841407037-DxaLLb3QhHtyrrYPBZoow2ANnAnZTvUs3d5ufUX";
-our $token_secret 	 = "qYCyROriXlisjXJCJwsUr485LABnOFr40qbz0888yd3RX";
 
 my $nt = Net::Twitter->new                               #Create a new twitter authentication
   (
