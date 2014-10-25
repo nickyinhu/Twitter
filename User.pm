@@ -20,12 +20,15 @@ has 'name' => (
 	is   => 'rw',
 	isa  => 'Str',
 	required => 1,
+	reader => 'get_name',
+	writer => '_set_name',
 );
 # Email attribute
 has 'email' => (
 	is   => 'rw',
 	isa  => 'Str',
 	required => 1,
+	reader => 'get_email',
 );
 # Tweet object array
 has 'tweets' => (
@@ -40,15 +43,10 @@ has 'tweets' => (
 		
 	},
 );
-# Return user name
-sub get_name {
-	my $self = shift;
-	return $self->name;
-}
 # Return user email
-sub get_email {
+sub set_name {
 	my $self = shift;
-	return $self->email;
+	return $self->set_name(shift);
 }
 # Add a new tweet to user's tweet array
 sub post{
@@ -100,3 +98,64 @@ sub print_posts{
 
 
 1;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+User - A perl module to simulate Twitter user
+
+=head1 SYNOPSIS
+
+use User;
+
+my $user = User->new(
+	name => "name", 
+	email => "emai"
+);
+
+=head2 Methods
+
+=over 12
+
+=item C<new>
+
+Returns a new User object
+
+=item C<get_name>
+
+Returns user name and email
+
+=item C<get_email>
+
+Returns user email address
+
+=item C<post>
+
+Post a new tweet, No return
+
+=item C<get_allposts>
+
+Print all posts for current user, No return
+
+=item C<get_lastpost>
+
+Print the last post, No return
+
+=item C<delete_lastpost>
+
+Delete the last post, No return
+
+=item C<get_count>
+
+Returns the number of posts
+
+=back
+
+=head1 AUTHOR
+
+Hu Yin - L<huyin8@gmail.com>
+
+=cut
